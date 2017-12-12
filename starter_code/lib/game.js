@@ -46,7 +46,7 @@ function Game(canvasId) {
   this.collision1 = false;
   this.collision2 = false;
   this.myBirds = [];
-  setInterval(this.addBird.bind(this), Math.floor(Math.random() * (9000 - 4000)) + 4000);
+  setInterval(this.addBird.bind(this), Math.floor(Math.random() * (9000 - 5000)) + 5000);
   this.cloud = new Cloud("canvas", 'images/clouds.png', this.ctx, 350)
   this.hasMiner1Won = false;
   this.hasMiner2Won = false;
@@ -186,12 +186,14 @@ Game.prototype.movements = function() {
   if (this.keys[B_KEY] && (this.frames % 10 === 0)) {
     if (this.warrior1.x < this.warrior2.x - 25) {
       this.warrior1.moveWarriorRigth();
+
     }
   }
 
 
   if (this.keys[C_KEY] && (this.frames % 10 === 0)) {
     this.warrior1.moveWarriorLeft();
+
   }
 
 
@@ -243,11 +245,13 @@ Game.prototype.movements = function() {
   if (this.keys[LEFT_KEY] && (this.frames % 10 === 0)) {
     if (this.warrior2.x > this.warrior1.x + 25) {
       this.warrior2.moveWarriorLeft();
+
     }
   }
 
   if (this.keys[RIGHT_KEY] && (this.frames % 10 === 0)) {
     this.warrior2.moveWarriorRigth();
+  
   }
 
   if (this.keys[I_KEY] && (this.frames % 5 === 0)) {
